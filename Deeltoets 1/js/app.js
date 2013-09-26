@@ -1,3 +1,4 @@
+
 var SCORES = SCORES || {};
 
 (function () {
@@ -58,12 +59,8 @@ var SCORES = SCORES || {};
 	    ]
 	};
 
-
-	
-	// Controller Init
 	SCORES.controller = {
 		init: function () {
-			// Initialize router
 			SCORES.router.init();
 		}
 	};
@@ -91,9 +88,10 @@ var SCORES = SCORES || {};
 		change: function () {
             var route = window.location.hash.slice(2),
                 sections = qwery('section[data-route]'),
-                section = qwery('[data-route=' + route + ']')[0];  
+                section = qwery('[data-route=' + route + ']')[0]; 
 
-            // Show active section, hide all other
+                console.log(qwery('[data-route=' + route + ']')[0]); 
+
             if (section) {
             	for (var i=0; i < sections.length; i++){
             		sections[i].classList.remove('active');
@@ -101,7 +99,6 @@ var SCORES = SCORES || {};
             	section.classList.add('active');
             }
 
-            // Default route
             if (!route) {
             	sections[0].classList.add('active');
             }
@@ -109,7 +106,7 @@ var SCORES = SCORES || {};
 		}
 	};
 
-	// Pages
+	// Templates laden
 	SCORES.page = {
 		schedule: function () {
 			Transparency.render(qwery('[data-route=schedule')[0], SCORES.schedule);
@@ -125,10 +122,10 @@ var SCORES = SCORES || {};
 			Transparency.render(qwery('[data-route=ranking')[0], SCORES.ranking);
 			SCORES.router.change();
 		}
-	}
+	};
+
 	// DOM ready
 	domready(function () {
-		// Kickstart application
 		SCORES.controller.init();
 	});
 	
