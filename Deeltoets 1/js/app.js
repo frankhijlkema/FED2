@@ -125,7 +125,7 @@ var SCORES = SCORES || {};
 	};
 
 	// DOM ready
-	domready(function () {
+	onDomReady(function () {
 		SCORES.controller.init();
 	});
 	
